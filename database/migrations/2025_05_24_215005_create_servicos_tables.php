@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //Dentro do up
         Schema::create('servicos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cliente_id');
-            $table->enum('status', ['Aberta', 'Em Atendimento', 'Concluida'])->default('Aberta');
+            $table->enum('status', array_column(App\Enums\Status::cases(),'value'))->default('Aberta');
             $table->string('titulo');
             $table->text('descricao');
             $table->timestamps();

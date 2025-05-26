@@ -316,6 +316,11 @@ return [
             'text' => 'search',
         ],
         [
+            'text' => 'Gestão de Serviços',
+            'url' => 'gestao/servicos',
+            'icon' => 'fas fa-fw fa-clipboard-check',
+        ],
+        [
             'text' => 'Minhas Ordens de Serviço',
             'url' => 'home',
             'icon' => 'fas fa-fw fa-clipboard-list',
@@ -326,16 +331,10 @@ return [
             'icon' => 'fas fa-fw fa-plus-circle',
         ],
         [
-            'text' => 'Gestão de Serviços',
-            'url' => 'gestaodeservicos',
-            'icon' => 'fas fa-fw fa-clipboard-check',
-        ],
-        [
             'text' => 'Gestão de usuários',
             'url' => 'users',
             'icon' => 'fas fa-fw fa-users',
         ],
-
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

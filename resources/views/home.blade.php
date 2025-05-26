@@ -11,8 +11,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @can('isAdmin')
                     {{ __('You are logged in!') }}
+                    @endcan
                 </div>
             </div>
         </div>
