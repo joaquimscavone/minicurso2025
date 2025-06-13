@@ -9,4 +9,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::middleware('can:isTecnic')->get('/gestao/servicos', [App\Http\Controllers\HomeController::class, 'index']);
+
+Route::get('/users',[App\Http\Controllers\UsuariosController::class,'index'])->name('usuarios');
+Route::post('/user/{user}/changeadmin',[App\Http\Controllers\UsuariosController::class,'changeAdmin'])->name('changeAdmin');
+Route::post('/user/{user}/changetecnico',[App\Http\Controllers\UsuariosController::class,'changeTecnico'])->name('changeTecnico');
