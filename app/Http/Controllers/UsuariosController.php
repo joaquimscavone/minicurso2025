@@ -18,11 +18,11 @@ class UsuariosController extends Controller
     public function changeTecnico(User $user){
         $user->tecnico = !$user->tecnico;
         $user->save();
-        return redirect()->route('usuarios')->with('Success',"$user->name atualizado com sucesso!");
+        return redirect()->route('usuarios')->with('success',"$user->name atualizado com sucesso!");
     }
     public function changeAdmin(User $user){
         $user->admin = !$user->admin;
         $user->save();
-        return redirect()->route('usuarios')->with('Success',"$user->name atualizado com sucesso!");
+        return redirect()->route('usuarios')->with('success',"$user->name atualizado com sucesso!");
     }
 }

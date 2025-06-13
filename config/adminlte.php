@@ -334,6 +334,7 @@ return [
             'text' => 'Gestão de usuários',
             'url' => 'users',
             'icon' => 'fas fa-fw fa-users',
+            'can' => 'isAdmin'
         ],
         ['header' => 'account_settings'],
         [

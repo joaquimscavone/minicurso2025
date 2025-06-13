@@ -10,6 +10,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/users',[App\Http\Controllers\UsuariosController::class,'index'])->name('usuarios');
-Route::post('/user/{user}/changeadmin',[App\Http\Controllers\UsuariosController::class,'changeAdmin'])->name('changeAdmin');
-Route::post('/user/{user}/changetecnico',[App\Http\Controllers\UsuariosController::class,'changeTecnico'])->name('changeTecnico');
+Route::middleware('can:isAdmin')->group(function () {
+    Route::get('/users', [App\Http\Controllers\UsuariosController::class, 'index'])->name('usuarios');
+    Route::post('/user/{user}/changeadmin', [App\Http\Controllers\UsuariosController::class, 'changeAdmin'])->name('changeAdmin');
+    Route::post('/user/{user}/changetecnico', [App\Http\Controllers\UsuariosController::class, 'changeTecnico'])->name('changeTecnico');
+});
