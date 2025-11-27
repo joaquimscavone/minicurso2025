@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>SistInfo</b>',
+    'logo' => '<b>'.env('APP_NAME', 'Laravel AdminLTE').'</b>',
     'logo_img' => 'assets/images/logo128x128.png',
     'logo_img_class' => 'brand-image img-circle elevation-3 bg-white',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'SistInfo',
+    'logo_img_alt' => env('APP_NAME', 'Laravel AdminLTE'),
 
     /*
     |--------------------------------------------------------------------------
