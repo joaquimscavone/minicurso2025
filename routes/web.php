@@ -15,3 +15,8 @@ Route::middleware('can:isAdmin')->group(function () {
     Route::post('/user/{user}/changeadmin', [App\Http\Controllers\UsuariosController::class, 'changeAdmin'])->name('changeAdmin');
     Route::post('/user/{user}/changetecnico', [App\Http\Controllers\UsuariosController::class, 'changeTecnico'])->name('changeTecnico');
 });
+
+Route::middleware('auth')->group(function(){
+    Route::get('/clientes', [App\Http\Controllers\ClienteController::class,'index']);
+    Route::post('/clientes', [App\Http\Controllers\ClienteController::class, 'store']);
+});

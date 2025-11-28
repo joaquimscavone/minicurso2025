@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -11,7 +12,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        return view('clientes.list', ['clientes' => Cliente::all()]);
     }
 
     /**
@@ -27,7 +28,20 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'telefone' => 'nullable|string|max:20',
+            'cpf' => 'nullable|string|max:14',
+        ]);
+        if (empty($request->email) && empty($request->telefone)) {
+            return redirect()->back()->withErrors([
+                    'email' => 'O email ou telefone deve ser fornecido.'
+                , 'telefone' => 'O email ou telefone deve ser fornecido.'])
+                ->withInput();
+        }
+        Cliente::create($request->only('nome', 'email', 'telefone', 'cpf'));
+        return redirect('/clientes');
     }
 
     /**
